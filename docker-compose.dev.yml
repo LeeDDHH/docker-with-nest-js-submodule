@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  back-app:
+    platform: linux/x86_64
+    container_name: back-app
+    image: localdev/docker-nest-app
+    build:
+      context: .
+      dockerfile: ./dev/Dockerfile
+    volumes:
+      - ./backendVolume:/src
+      - /src/node_modules # パス指定のみで、Engineにボリュームを生成させる
+    ports:
+      - "3000:3000"
+    tty: true
+    working_dir: /src
+    command: sh -c "npm run start:dev"
