@@ -20,7 +20,7 @@ else
     $cmd
   fi
 
-  cmd="docker compose -f docker-compose.dev.yml up -d"
+  cmd="docker compose -f docker-compose.yml up -d"
   echo $cmd
   $cmd
 fi
